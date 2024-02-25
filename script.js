@@ -7,11 +7,13 @@ var dictionary = { // Generated numbers use dictionary object and arrays
 
 function generatePassword() { // Function that runs when generate button is pressed
   var characterLimit = prompt("How long should our Password be? (8-128 Limit)"); 
+  var rand = Math.floor(Math.random() * dictionary.int.length);
   if (characterLimit >= 8 && characterLimit <= 128) { // Asks for character length, then checks if it fits within limit.
     var finalPass = []; //final Password should be an array, so that it can be pushed onto
-    for (var i = 0; i < characterLimit; i++) {
+    for (var i = 0; i < characterLimit; i+=rand) {
+
       finalPass.push(dictionary.int[i % dictionary.int.length]); // Loops the array
-    } return finalPass;
+    } return finalPass.join();
   } alert("ERROR"); // Debug error alert
 }
 
