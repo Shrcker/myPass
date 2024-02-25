@@ -2,12 +2,13 @@
 var generateBtn = document.querySelector("#generate"); // Grabs the input button by html id.
 
 const dictionary = { // Generated numbers use dictionary object and arrays
-  int: "1 2 3 4 5 6 7 8 9 0".split(' ')
+  int: "1234567890".split(''),
+  char: 'abcdefghijklmnopqrstuvwxyz'.split(''),
+  special: "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split('')
 }
 
-
 function get_random (list) {
-  return list[Math.floor((Math.random()*list.length))]; // Generates a random number between 0 and 10.
+  return list[Math.floor((Math.random()*list.length))]; // Generates a random number between 0 and 9.
 }
 
 function generatePassword() { // Function that runs when generate button is pressed
