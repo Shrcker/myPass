@@ -1,18 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate"); // Grabs the input button by html id.
 
-var dictionary = { // Generated numbers use dictionary object and arrays
+const dictionary = { // Generated numbers use dictionary object and arrays
   int: "1 2 3 4 5 6 7 8 9 0".split(' ')
 }
 
 
 function get_random (list) {
-  return list[Math.floor((Math.random()*(list.length + 1)))]; // Generates a random number between 0 and 10.
+  return list[Math.floor((Math.random()*list.length))]; // Generates a random number between 0 and 10.
 }
 
 function generatePassword() { // Function that runs when generate button is pressed
   var characterLimit = prompt("How long should our Password be? (8-128 Limit)"); 
-  // var rand = Math.floor(((Math.random() + 1) * dictionary.int.length) / 5);
   if (characterLimit >= 8 && characterLimit <= 128) { // Asks for character length, then checks if it fits within limit.
     var finalPass = [];
     for (var i = 0; i < characterLimit; i++) {
