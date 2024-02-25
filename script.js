@@ -5,15 +5,19 @@ var dictionary = { // Generated numbers use dictionary object and arrays
   int: "1 2 3 4 5 6 7 8 9 0".split(' ')
 }
 
+
+function get_random (list) {
+  return list[Math.floor((Math.random()*(list.length + 1)))]; // Generates a random number between 0 and 10.
+}
+
 function generatePassword() { // Function that runs when generate button is pressed
   var characterLimit = prompt("How long should our Password be? (8-128 Limit)"); 
-  var rand = Math.floor(Math.random() * dictionary.int.length);
+  // var rand = Math.floor(((Math.random() + 1) * dictionary.int.length) / 5);
   if (characterLimit >= 8 && characterLimit <= 128) { // Asks for character length, then checks if it fits within limit.
-    var finalPass = []; //final Password should be an array, so that it can be pushed onto
-    for (var i = 0; i < characterLimit; i+=rand) {
-
-      finalPass.push(dictionary.int[i % dictionary.int.length]); // Loops the array
-    } return finalPass.join();
+    var finalPass = [];
+    for (var i = 0; i < characterLimit; i++) {
+      finalPass.push(get_random(dictionary.int)); // Runs random number function to randomly pull from the array.
+    } return finalPass.join(''); // Numbers in generated array now display without commas or spaces.
   } alert("ERROR"); // Debug error alert
 }
 
