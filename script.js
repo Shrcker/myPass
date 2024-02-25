@@ -10,7 +10,7 @@ function generatePassword() { // Function that runs when generate button is pres
   if (characterLimit >= 8 && characterLimit <= 128) { // Asks for character length, then checks if it fits within limit.
     var finalPass = []; //final Password should be an array, so that it can be pushed onto
     for (var i = 0; i < characterLimit; i++) {
-      finalPass += dictionary.int[i % dictionary.int.length]; // Loops the array
+      finalPass.push(dictionary.int[i % dictionary.int.length]); // Loops the array
     } return finalPass;
   } alert("ERROR"); // Debug error alert
 }
