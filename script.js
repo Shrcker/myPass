@@ -19,7 +19,7 @@ function get_random (list) {
 function passGenLoop (index, limit, array) {
   for (var i = 0; i < limit; i++) {
     array.push(get_random(choices.charLists[index]));
-  } return array.join('');
+  }
 }
 
 function generatePassword() { // Function that runs when generate button is pressed
@@ -29,10 +29,13 @@ function generatePassword() { // Function that runs when generate button is pres
     var answer = window.prompt("What kind of characters should be included? Choose from letters, numbers, or symbols (Please choose at least one).", "Numbers, Letters, or Symbols");
     if (answer.toLowerCase() === choices.charNames[0]) {
       passGenLoop(0, characterLimit, finalPass);
+      return finalPass.join('');
     } else if (answer.toLowerCase() === choices.charNames[1]) {
       passGenLoop(1, characterLimit, finalPass);
+      return finalPass.join('');
     } else if (answer.toLowerCase() === choices.charNames[2]) {
       passGenLoop(2, characterLimit, finalPass);
+      return finalPass.join('');
     }
   } alert("ERROR"); // Debug error alert
 }
