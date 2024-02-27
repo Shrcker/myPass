@@ -1,23 +1,51 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate"); // Grabs the input button by html id.
 
-const dictionary = { // Generated numbers use dictionary object and arrays
-  int: "1 2 3 4 5 6 7 8 9 0".split(' ')
-}
+const numbers = '1234567890';
+const letters = 'abcdefghijklmnopqrstuvwxyz';
+const upperCase= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const special = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; 
 
+var pool = ''; // Empty string acting as a template for the random password.
+
+const finalPass = [];
 
 function get_random (list) {
-  return list[Math.floor((Math.random()*list.length))]; // Generates a random number between 0 and 10.
+  return list[Math.floor((Math.random()*list.length))];
+}
+
+function passGenLoop (limit) {
+  for (var i = 0; i < limit; i++) {
+    finalPass.push(get_random(pool.split('')));
+  }
 }
 
 function generatePassword() { // Function that runs when generate button is pressed
-  var characterLimit = prompt("How long should our Password be? (8-128 Limit)"); 
+
+  var characterLimit = window.prompt("How long should our Password be? (8-128 Limit)"); 
   if (characterLimit >= 8 && characterLimit <= 128) { // Asks for character length, then checks if it fits within limit.
-    var finalPass = [];
-    for (var i = 0; i < characterLimit; i++) {
-      finalPass.push(get_random(dictionary.int)); // Runs random number function to randomly pull from the array.
-    } return finalPass.join(''); // Numbers in generated array now display without commas or spaces.
-  } alert("ERROR"); // Debug error alert
+    var answerInt = window.confirm('Do you want this password to include numbers?');
+    if (answerInt) {
+      pool += numbers;
+    }
+    var answerLetters = window.confirm('Do you want this password to include lower case letters?');
+    if (answerLetters) {
+      pool += letters;
+    }
+    var answerCase = window.confirm('Do you want this password to include upper case letters?');
+    if (answerCase) {
+      pool += upperCase;
+    }
+    var answerSpecial = window.confirm('Do you want this password to include special characters?');
+    if (answerSpecial) {
+      pool += special;
+    } if (!answerSpecial && !answerCase && !answerLetters && !answerInt) {
+      window.alert("Please select a data type");
+      return;
+    }
+    passGenLoop(characterLimit);
+    return finalPass.join('');
+  } 
 }
 
 // Write password to the #password input
