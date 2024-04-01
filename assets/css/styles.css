@@ -76,8 +76,7 @@ header {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 6px 0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -86,6 +85,7 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  transition: 0.5s ease-out;
 }
 
 button[disabled] {
@@ -116,6 +116,15 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+.btn:hover {
+  background-color: hsl(0, 78%, 24%);
+  transition: 0.5s ease-out;
+}
+
+.btn:active {
+  transform: translate(1px, 2px);
 }
 
 @media (max-width: 690px) {
