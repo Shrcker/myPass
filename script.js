@@ -1,4 +1,4 @@
-const generateBtn = document.getElementById("generate"); // Grabs the input button by html id.
+const generateButton = document.getElementById("generate"); // Grabs the input button by html id.
 
 const numbers = "1234567890";
 const letters = "abcdefghijklmnopqrstuvwxyz";
@@ -59,4 +59,4 @@ function writePassword(event) {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateButton.addEventListener("click", writePassword);
